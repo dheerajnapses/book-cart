@@ -71,7 +71,8 @@ export const login = async (req: Request, res: Response) => {
     // Set the token in the cookie
     res.cookie('access_token', accessToken, {
       httpOnly: true,
-      sameSite:'strict',
+      sameSite: 'none',
+      secure:true,
       maxAge:24*60*60*1000
     });
     
