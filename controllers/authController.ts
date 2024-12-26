@@ -42,8 +42,8 @@ export const verifyEmail = async (req: Request, res: Response) => {
     const accessToken = generateToken(user);
     res.cookie('access_token', accessToken, {
       httpOnly: true,
-      sameSite:'strict',
-      maxAge:24*60*60*1000
+      sameSite: 'none',
+      maxAge:24*60*60*1000,
     });
     
     await user.save();
